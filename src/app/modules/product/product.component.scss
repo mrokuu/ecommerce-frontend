@@ -1,7 +1,7 @@
 @import '../../../variables.scss';
 :host{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 10px;
 }
 .productImage{
@@ -19,3 +19,9 @@
 mat-card{
     margin-bottom: 25px;
 }
+
+mat-card img{
+    object-fit: cover; 
+    height: 100px;
+  width: 100px;
+  }
