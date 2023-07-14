@@ -1,0 +1,21 @@
+@import '../../../variables.scss';
+:host{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}
+.productImage{
+    margin-right: 10px;
+}
+.productPrice{
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 20px;
+    color: $warn;
+}
+.productContent{
+    font-size: 18px;
+}
+mat-card{
+    margin-bottom: 25px;
+}
