@@ -1,12 +1,10 @@
 @import '../../../variables.scss';
 :host{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr ;
     grid-column-gap: 10px;
 }
-.productImage{
-    margin-right: 10px;
-}
+
 .productPrice{
     font-size: 30px;
     font-weight: 500;
