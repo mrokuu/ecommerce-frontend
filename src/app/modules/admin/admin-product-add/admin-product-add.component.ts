@@ -34,7 +34,7 @@ export class AdminProductAddComponent implements OnInit {
       description: ['', [Validators.required, Validators.minLength(4)]],
       category: ['', [Validators.required, Validators.minLength(4)]],
       price: ['', [Validators.required, Validators.min(0)]],
-      currency: ['PLN', Validators.required],
+      currency: ['$', Validators.required],
       slug: ['', [Validators.required, Validators.minLength(4)]]
     });
     this.imageForm = this.formBuilder.group({
@@ -49,13 +49,13 @@ export class AdminProductAddComponent implements OnInit {
       category: this.productForm.get('category')?.value,
       price: this.productForm.get('price')?.value,
       currency: this.productForm.get('currency')?.value,
-      slug: this.productForm.get('slug')?.value,
+      // slug: this.productForm.get('slug')?.value,
       image: this.image
     } as AdminProductUpdate)
       .subscribe({
         next: product => {
           this.router.navigate(["/admin/products/update", product.id])
-            .then(() => this.snackBar.open("Produkt został dodany", "", { duration: 3000 }))
+            .then(() => this.snackBar.open("Product was added", "", { duration: 3000 }))
         },
         error: err => this.adminMessageService.addSpringErrors(err.error)
       })

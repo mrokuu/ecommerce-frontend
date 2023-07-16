@@ -7,7 +7,7 @@ import { FormGroup } from "@angular/forms";
     <div [formGroup]="parentForm" fxLayout="column">
         <mat-form-field appearance="fill">
             <mat-label>Name</mat-label>
-            <input matInput placeholder="Podaj nazwę produktu" formControlName="name">
+            <input matInput placeholder="Enter name" formControlName="name">
             <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="erroMessages">
                 <div *ngIf="name?.errors?.['required']">
                     Name is required
@@ -33,7 +33,7 @@ import { FormGroup } from "@angular/forms";
 
         <mat-form-field appearance="fill">
             <mat-label>Description</mat-label>
-            <textarea matInput rows="20" placeholder="Podaj opis produktu" formControlName="description"></textarea>
+            <textarea matInput rows="20" placeholder="Enter description" formControlName="description"></textarea>
             <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="erroMessages">
                 <div *ngIf="description?.errors?.['required']">
                 Description is required
@@ -46,7 +46,7 @@ import { FormGroup } from "@angular/forms";
 
         <mat-form-field appearance="fill">
             <mat-label>Category</mat-label>
-            <input matInput placeholder="Podaj kategorię produktu" formControlName="category">
+            <input matInput placeholder="Enter category" formControlName="category">
             <div *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="erroMessages">
                 <div *ngIf="category?.errors?.['required']">
                 Category is required
@@ -72,7 +72,7 @@ import { FormGroup } from "@angular/forms";
 
         <mat-form-field appearance="fill">
             <mat-label>Currency</mat-label>
-            <input matInput placeholder="Podaj walutę" formControlName="currency">
+            <input matInput placeholder="Enter Currency" formControlName="currency">
             <div *ngIf="currency?.invalid && (currency?.dirty || currency?.touched)" class="erroMessages">
                 <div *ngIf="currency?.errors?.['required']">
                 Currency is required
@@ -80,8 +80,10 @@ import { FormGroup } from "@angular/forms";
             </div>
         </mat-form-field>
 
+        
+
         <div fxLayoutAlign="end">
-            <button mat-flat-button color="primary" [disabled]="!parentForm.valid">Save</button>
+            <button mat-flat-button color="primary">Save</button>
         </div>
 </div>`,
     styles: [`
