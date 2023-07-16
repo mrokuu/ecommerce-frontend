@@ -80,6 +80,19 @@ import { FormGroup } from "@angular/forms";
             </div>
         </mat-form-field>
 
+      
+        <mat-form-field appearance="fill">
+            <mat-label>Image</mat-label>
+            <input matInput placeholder="Enter image" formControlName="image">
+            <div *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="erroMessages">
+                <div *ngIf="category?.errors?.['required']">
+                Category is required
+                </div>
+                <div *ngIf="category?.errors?.['minlength']">
+                The category must be at least 4 characters long
+                </div>
+            </div>
+        </mat-form-field>
         
 
         <div fxLayoutAlign="end">
