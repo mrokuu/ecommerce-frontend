@@ -9,7 +9,8 @@ import { LoginComponent } from 'src/app/modules/login/login.component';
 @NgModule({
   declarations: [
     FullpageComponent,
-    LoginComponent
+    LoginComponent,
+    
   ],
   imports: [
     CommonModule,
