@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 import { AdminReviewService } from './admin-review.service';
 import { AdminReview } from './model/adminReview ';
+import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 
 @Component({
   selector: 'app-admin-review',
@@ -25,7 +25,7 @@ export class AdminReviewComponent implements OnInit {
   }
 
   confirmModerate(element: AdminReview) {
-    this.dialogService.openConfirmDialog('Czy chcesz zatwierdzić opinię?')
+    this.dialogService.openConfirmDialog('Do you want to approve the review?')
       .afterClosed()
       .subscribe(result => {
         if (result) {
@@ -41,7 +41,7 @@ export class AdminReviewComponent implements OnInit {
   }
 
   confirmDelete(element: AdminReview) {
-    this.dialogService.openConfirmDialog('Czy chcesz usunąć tę opinię?')
+    this.dialogService.openConfirmDialog('Do you want to remove this review?')
     .afterClosed()
     .subscribe(result => {
       if (result) {

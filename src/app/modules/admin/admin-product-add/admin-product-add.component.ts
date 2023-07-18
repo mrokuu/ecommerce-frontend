@@ -32,7 +32,7 @@ export class AdminProductAddComponent implements OnInit {
     this.productForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
       description: ['', [Validators.required, Validators.minLength(4)]],
-      category: ['', [Validators.required, Validators.minLength(4)]],
+      categoryId: ['', [Validators.required, Validators.minLength(4)]],
       price: ['', [Validators.required, Validators.min(0)]],
       currency: ['$', Validators.required],
       slug: ['', [Validators.required, Validators.minLength(4)]],
@@ -48,7 +48,7 @@ export class AdminProductAddComponent implements OnInit {
     this.adminProductAddService.saveNewProduct({
       name: this.productForm.get('name')?.value,
       description: this.productForm.get('description')?.value,
-      category: this.productForm.get('category')?.value,
+      categoryId: this.productForm.get('categoryId')?.value,
       price: this.productForm.get('price')?.value,
       currency: this.productForm.get('currency')?.value,
       // slug: this.productForm.get('slug')?.value,

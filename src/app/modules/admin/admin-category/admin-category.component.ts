@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 import { AdminCategoryNameDto } from '../common/dto/adminCategoryNameDto';
 import { AdminCategoryService } from './admin-category.service';
+import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 
 @Component({
   selector: 'app-admin-category',
@@ -31,7 +31,7 @@ export class AdminCategoryComponent implements OnInit {
   }
 
   confirmDelete(element: AdminCategoryNameDto) {
-    this.dialogService.openConfirmDialog("Czy na pewno chcesz usunąć kategorię?")
+    this.dialogService.openConfirmDialog("Are you sure you want to delete this product?")
     .afterClosed()
     .subscribe(result => {
       if(result) {

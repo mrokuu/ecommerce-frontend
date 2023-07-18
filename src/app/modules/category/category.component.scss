@@ -1,11 +1,10 @@
 @import '../../../variables.scss';
 :host{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-column-gap: 10px;
 }
-.productImage{
-    margin-right: 10px;
-}
+
 .productPrice{
     font-size: 30px;
     font-weight: 500;
@@ -18,10 +17,9 @@
 mat-card{
     margin-bottom: 25px;
 }
-a{
-    text-decoration: none;
-    color: black;
-}
-a:hover{
-    color: #777;
-}
+
+mat-card img{
+    object-fit: cover; 
+    height: 100px;
+  width: 100px;
+  }

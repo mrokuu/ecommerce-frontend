@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
+import { AdminCategoryNameDto } from "../common/dto/adminCategoryNameDto";
+import { FormCategoryService } from "./form-category.service";
 
 @Component({
     selector: 'app-admin-product-form',
@@ -46,13 +48,14 @@ import { FormGroup } from "@angular/forms";
 
         <mat-form-field appearance="fill">
             <mat-label>Category</mat-label>
-            <input matInput placeholder="Enter category" formControlName="category">
-            <div *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="erroMessages">
-                <div *ngIf="category?.errors?.['required']">
-                Category is required
-                </div>
-                <div *ngIf="category?.errors?.['minlength']">
-                The category must be at least 4 characters long
+            <mat-select formControlName="categoryId">
+                <mat-option *ngFor="let el of categories" [value]="el.id">
+                {{el.name}}
+                </mat-option>
+            </mat-select>
+            <div *ngIf="categoryId?.invalid && (categoryId?.dirty || categoryId?.touched)" class="erroMessages">
+                <div *ngIf="categoryId?.errors?.['required']">
+                    Category is required
                 </div>
             </div>
         </mat-form-field>
@@ -84,11 +87,11 @@ import { FormGroup } from "@angular/forms";
         <mat-form-field appearance="fill">
             <mat-label>Image</mat-label>
             <input matInput placeholder="Enter image" formControlName="image">
-            <div *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="erroMessages">
-                <div *ngIf="category?.errors?.['required']">
+            <div *ngIf="categoryId?.invalid && (categoryId?.dirty || categoryId?.touched)" class="erroMessages">
+                <div *ngIf="categoryId?.errors?.['required']">
                 Category is required
                 </div>
-                <div *ngIf="category?.errors?.['minlength']">
+                <div *ngIf="categoryId?.errors?.['minlength']">
                 The category must be at least 4 characters long
                 </div>
             </div>
@@ -107,9 +110,17 @@ import { FormGroup } from "@angular/forms";
 export class AdminProductFormConponent implements OnInit {
 
     @Input() parentForm!: FormGroup;
+    categories: Array<AdminCategoryNameDto> = [];
+
+    constructor(private formCategoryService: FormCategoryService){}
 
     ngOnInit(): void {
+        this.getCategories();
+    }
 
+    getCategories(){
+        this.formCategoryService.getCategories()
+        .subscribe(categories => this.categories = categories);
     }
 
     get name(){
@@ -120,8 +131,8 @@ export class AdminProductFormConponent implements OnInit {
         return this.parentForm.get("description");
     }
     
-    get category(){
-        return this.parentForm.get("category");
+    get categoryId(){
+        return this.parentForm.get("categoryId");
     }
 
     get price(){
@@ -134,6 +145,10 @@ export class AdminProductFormConponent implements OnInit {
 
     get slug(){
         return this.parentForm.get("slug");
+    }
+
+    get fullDescription(){
+        return this.parentForm.get("fullDescription");
     }
 
   

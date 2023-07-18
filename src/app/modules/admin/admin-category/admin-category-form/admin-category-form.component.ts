@@ -6,40 +6,40 @@ import { FormGroup } from "@angular/forms";
     template: `
     <div [formGroup]="parentForm" fxLayout="column">
         <mat-form-field appearance="fill">
-            <mat-label>Nazwa</mat-label>
+            <mat-label>Name</mat-label>
             <input matInput placeholder="Podaj nazwę produktu" formControlName="name">
             <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="erroMessages">
                 <div *ngIf="name?.errors?.['required']">
-                    Nazwa jest wymagana
+                    Name is required
                 </div>
                 <div *ngIf="name?.errors?.['minlength']">
-                    Nazwa musi mieć przynajmniej 4 znaki
+                The name must be at least 4 characters long
                 </div>
             </div>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Przyjazny url</mat-label>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Url</mat-label>
             <input matInput placeholder="Podaj url" formControlName="slug">
             <div *ngIf="slug?.invalid && (slug?.dirty || slug?.touched)" class="erroMessages">
                 <div *ngIf="slug?.errors?.['required']">
-                    Nazwa jest wymagana
+                Name is required
                 </div>
                 <div *ngIf="slug?.errors?.['minlength']">
-                    Nazwa musi mieć przynajmniej 4 znaki
+                The name must be at least 4 characters long
                 </div>
             </div>
-        </mat-form-field>
+        </mat-form-field> -->
 
         <mat-form-field appearance="fill">
-            <mat-label>Opis</mat-label>
-            <textarea matInput rows="10" placeholder="Podaj opis produktu" formControlName="description"></textarea>
+            <mat-label>Description</mat-label>
+            <textarea matInput rows="10" placeholder="Enter description" formControlName="description"></textarea>
             <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="erroMessages">
                 <div *ngIf="description?.errors?.['required']">
-                    Opis jest wymagany
+                Description is required
                 </div>
                 <div *ngIf="description?.errors?.['minlength']">
-                    Opis musi mieć przynajmniej 4 znaki
+                The description must be at least 4 characters long
                 </div>
             </div>
         </mat-form-field>
@@ -48,7 +48,7 @@ import { FormGroup } from "@angular/forms";
 
 
         <div fxLayoutAlign="end">
-            <button mat-flat-button color="primary" [disabled]="!parentForm.valid">Zapisz</button>
+            <button mat-flat-button color="primary" >Save</button>
         </div>
 </div>`,
     styles: [`
