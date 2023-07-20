@@ -6,7 +6,7 @@
         <div class="cart-hcol-1">Image</div>
         <div class="cart-hcol-2">Name</div>
         <div class="cart-hcol-3">Quantity</div>
-        <div class="cart-hcol-4">Wartość</div>
+        <div class="cart-hcol-4">Value</div>
         <div class="cart-hcol-5">Delete</div>
     </div>
     <div formGroupName="items">
@@ -14,7 +14,8 @@
             <div [formGroupName]="i" fxLayout="row" fxLayoutAlign="space-between start" class="card-row">
                 <div class="cart-col-1">
                     <a >
-                        
+                        <img mat-card-image src={{item.value?.product?.image}} alt="product" width="50">
+
                     </a>
                 </div>
                 <div class="cart-col-2">{{item.value?.product?.name}}</div>
@@ -27,15 +28,13 @@
         </div>
     </div>
     <div class="card-row" fxLayoutAlign="end start">
-        <button mat-flat-button color="warn" (click)="submit()">Zaktualizuj koszyk</button>
+        <button mat-flat-button color="primary" (click)="submit()">Update Cart</button>
     </div>
     <div fxLayoutAlign="end start">
         <div class="summary"> Value: </div>
         <div class="summary"> <b>{{summary?.summary?.grossValue}}</b></div>
     </div>
-    <div>
-        <button mat-flat-button color="warn" (click)="back()">Back to the shop</button>
-    </div>
+   
 </div>
 </form>
 <div *ngIf="!summary?.items?.length">

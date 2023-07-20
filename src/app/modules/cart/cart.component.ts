@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { CartIconService } from '../common/service/cart-icon.service';
 import { CartService } from './cart.service';
 import { CartSummary } from './model/cartSummary';
 import { CartSummaryItem } from './model/cartSummaryItem';
 import { Location } from '@angular/common';
+import { CartIconService } from '../common/service/cart-icon.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -41,6 +41,8 @@ export class CartComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       items: this.formBuilder.array([])
     });
+
+    
   }
 
   getCart(){
@@ -91,6 +93,7 @@ export class CartComponent implements OnInit {
         this.summary = summary
         this.formGroup.get("items")?.setValue(summary.items)
       });
+      
   }
 
   mapToRequestListDto(): any[] {
@@ -110,7 +113,5 @@ export class CartComponent implements OnInit {
     return (<FormArray>this.formGroup.get("items")).controls;
   }
   
-  back(){
-    this.location.historyGo(this.isProductAdded ? -2 : -1);
-  }  
+  
 }
