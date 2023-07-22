@@ -17,6 +17,10 @@ import { AdminCategoryFormConponent } from 'src/app/modules/admin/admin-category
 import { AdminReviewComponent } from 'src/app/modules/admin/admin-review/admin-review.component';
 import { AdminCategoryAddComponent } from 'src/app/modules/admin/admin-category/admin-category-add/admin-category-add.component';
 import { AdminConfirmDialogComponent } from 'src/app/modules/admin/common/componnent/admin-confirm-dialog/admin-confirm-dialog.component';
+import { AdminOrderComponent } from 'src/app/modules/admin/admin-order/admin-order.component';
+import { AdminOrderUpdateComponent } from 'src/app/modules/admin/admin-order/admin-order-update/admin-order-update.component';
+import { AdminOrderStatsComponent } from 'src/app/modules/admin/admin-order/admin-order-stats/admin-order-stats.component';
+import { AdminOrderExportComponent } from 'src/app/modules/admin/admin-order/admin-order-export/admin-order-export.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { AdminConfirmDialogComponent } from 'src/app/modules/admin/common/compon
     AdminCategoryAddComponent,
     AdminCategoryUpdateComponent,
     AdminCategoryFormConponent,
-    AdminReviewComponent
+    AdminReviewComponent,
+    AdminOrderComponent,
+    AdminOrderUpdateComponent,
+    AdminOrderExportComponent,
+    AdminOrderStatsComponent
     
 
   ],
