@@ -4,7 +4,6 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { HomeComponent } from './modules/home/home.component';
 import { ProductComponent } from './modules/product/product.component';
 import { FullpageComponent } from './layouts/fullpage/fullpage.component';
-import { LoginComponent } from './modules/login/login.component';
 import { FullpageadminComponent } from './layouts/fullpageadmin/fullpageadmin.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { AdminProductComponent } from './modules/admin/admin-product/admin-product.component';
@@ -22,6 +21,11 @@ import { AdminOrderComponent } from './modules/admin/admin-order/admin-order.com
 import { AdminOrderExportComponent } from './modules/admin/admin-order/admin-order-export/admin-order-export.component';
 import { AdminOrderUpdateComponent } from './modules/admin/admin-order/admin-order-update/admin-order-update.component';
 import { AdminOrderStatsComponent } from './modules/admin/admin-order/admin-order-stats/admin-order-stats.component';
+import { ProfileComponent } from './modules/profile/profile.component';
+import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizeGuard';
+import { FullpageadminemptyComponent } from './layouts/fullpageadminempty/fullpageadminempty.component';
+import { AdminLoginComponent } from './modules/admin/admin-login/admin-login.component';
+import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [
   {
@@ -32,6 +36,8 @@ const routes: Routes = [
       {path: 'categories/:url', component: CategoryComponent},
       {path: 'cart', component: CartComponent},
       {path: 'order', component: OrderComponent},
+      {path: 'profile', component: ProfileComponent, canActivate: [ProfileAuthorizeGuard]},
+
       
 
     ]
@@ -57,6 +63,11 @@ const routes: Routes = [
       {path: 'admin/orders/stats', component: AdminOrderStatsComponent}
     
 
+    ]
+  },
+  {
+    path:'', component: FullpageadminemptyComponent, children: [
+      {path: 'admin/login', component: AdminLoginComponent}
     ]
   }
 ];

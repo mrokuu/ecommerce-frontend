@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { JwtService } from '../../common/service/jwt.service';
 import { AdminLoginService } from './admin-login.service';
+import { JwtService } from '../../common/service/jwt.service';
 
 @Component({
   selector: 'app-admin-login',
