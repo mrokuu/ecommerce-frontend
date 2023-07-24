@@ -4,23 +4,19 @@ import { FullpageComponent } from './fullpage.component';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { LostPasswordComponent } from 'src/app/modules/login/lost-password/lost-password.component';
 import { LoginComponent } from 'src/app/modules/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     FullpageComponent,
     LoginComponent,
-    LostPasswordComponent
     
   ],
   imports: [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
-    SharedModule,
-    ReactiveFormsModule
+    SharedModule
   ]
 })
 export class FullpageModule { }

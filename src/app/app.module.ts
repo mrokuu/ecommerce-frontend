@@ -3,16 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DefaultComponent } from './layouts/default/default.component';
+import { ProductComponent } from './modules/product/product.component';
+import { HomeComponent } from './modules/home/home.component';
 import { DefaultModule } from './layouts/default/default.module';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 import { FullpageModule } from './layouts/fullpage/fullpage.module';
 import { FullpageadminModule } from './layouts/fullpageadmin/fullpageadmin.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizeGuard';
-import { JwtInterceptor } from './modules/common/interceptor/jwt.interceptor';
-import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
-import { FullpageadminemptyModule } from './layouts/fullpageadminempty/fullpageadminempty.module';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,10 @@ import { FullpageadminemptyModule } from './layouts/fullpageadminempty/fullpagea
     DefaultModule,
     FullpageModule,
     FullpageadminModule,
-    FullpageadminemptyModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [CookieService,
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    AdminAuthorizeGuard,
-    ProfileAuthorizeGuard],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
